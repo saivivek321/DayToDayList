@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+ 
+<head>
+  <meta charset="utf-8">
+  <title>Day To Day List </title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+ 
+<body>
+      <div class="box" id="heading">
+        <h1> <%= kindofday %> </h1>
+        <h2><%= time_ %></h2>
+      </div>
+     
+      <div class="box">
+
+       <% listitems.forEach(function(item){ %>
+          <form action="/delete" method="post" >
+            <div class="item">
+              <input type="checkbox" name="checkbox" value="<%= item._id %>"onChange="this.form.submit()">
+              <p><%= item.name %></p>
+            </div>
+            <input type="hidden" name="listname" value="<%= kindofday %>">
+          </form>
+          
+       <% }) %>
+
+
+        <!-- <% for (var i=0; i<listitems.length; i++) { %>
+          <div class="item">
+              <input type="checkbox">
+            <p><%= listitems[i].name %></p>
+          </div>
+          <% } %>  -->
+            
+          <form class="item" action="/" method="post">
+            <input type="text" name="eachitem" placeholder="New Item" autocomplete="off">
+            <button type="submit" name="button" value="<%= kindofday %>">+</button>
+            </form>
+      </div>
+     
+       
+      
+       
+</body>
+ 
+</html>
